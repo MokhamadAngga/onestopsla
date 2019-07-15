@@ -71,27 +71,18 @@
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <input type="submit" class="btn btn-success" value="Ajukan" data-toggle="modal"
-                               data-target="#acceptModal">
+                               data-target="#app">
                     </div>
                 </div>
             </div>
         </div>
     </form>
     <!--modal terima-->
-    <div class="modal fade" id="acceptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Peminjaman akan segera diproses, silahkan tunggu
-                        konfirmasi dari Administrator. Terima Kasih.</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-            </div>
+        <div id="app">
+            @include('flash-message')
+
+            @yield('content')
         </div>
-    </div>
 @endsection
 
 @section('script.ext')

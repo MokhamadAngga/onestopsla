@@ -114,14 +114,14 @@ class UserController extends Controller
             $tgl_pinjam = Carbon::parse($request->tanggal_pinjam);
 
             if($tgl_pinjam->greaterThan($tgl_kembali)){
-                return 'error - Barang pada tanggal tersebut telah terpinjam';
+                return back()->with('error','Tanggal yang anda masukan tidak sesuai');
             }
             if ($countData=count($allData)) {
                 if ($allData[0]->tanggal_pinjam->subDay()->lessThan($tgl_kembali)&& $allData[0]->tanggal_pinjam->greaterThan($tgl_pinjam)) {
-                    return 'error - Barang pada tanggal tersebut telah terpinjam';
+                    return back()->with('error','Barang pada tanggal tersebut telah terpinjam');
                 } elseif ($allData[0]->tanggal_kembali->greaterThanOrEqualTo($tgl_pinjam)&&
                     $allData[0]->tanggal_kembali->lessThanOrEqualTo($tgl_kembali)) {
-                    return 'error - Barang pada tanggal tersebut telah terpinjam';
+                    return back()->with('error','Barang pada tanggal tersebut telah terpinjam');
                 }
                 else {
                     $a='';
@@ -183,14 +183,14 @@ class UserController extends Controller
             $tgl_pinjam = Carbon::parse($request->tanggal_pinjam);
 
             if($tgl_pinjam->greaterThan($tgl_kembali)){
-                return 'error';
+                return back()->with('error','Tanggal yang anda masukan tidak sesuai');
             }
             if ($countData=count($allData)) {
                 if ($allData[0]->tanggal_pinjam->subDay()->lessThan($tgl_kembali)&& $allData[0]->tanggal_pinjam->greaterThan($tgl_pinjam)) {
-                    return 'error';
+                    return back()->with('error','Barang pada tanggal tersebut telah terpinjam');
                 } elseif ($allData[0]->tanggal_kembali->greaterThanOrEqualTo($tgl_pinjam)&&
                     $allData[0]->tanggal_kembali->lessThanOrEqualTo($tgl_kembali)) {
-                    return 'error';
+                    return back()->with('error','Barang pada tanggal tersebut telah terpinjam');
                 }
                 else {
                     $a='';
@@ -208,7 +208,7 @@ class UserController extends Controller
                         }
                     }
                     if ($a){
-                        return 'error';
+                        return back()->with('error','Barang pada tanggal tersebut telah terpinjam');
                     }
                 }
             }
@@ -250,14 +250,14 @@ class UserController extends Controller
             $tgl_pinjam = Carbon::parse($request->tanggal_pinjam);
 
             if($tgl_pinjam->greaterThan($tgl_kembali)){
-                return 'error';
+                return back()->with('error','Tanggal yang anda masukan tidak sesuai');
             }
             if ($countData=count($allData)) {
                 if ($allData[0]->tanggal_pinjam->subDay()->lessThan($tgl_kembali)&& $allData[0]->tanggal_pinjam->greaterThan($tgl_pinjam)) {
-                    return 'error';
+                    return back()->with('error','Barang pada tanggal tersebut telah terpinjam');
                 } elseif ($allData[0]->tanggal_kembali->greaterThanOrEqualTo($tgl_pinjam)&&
                     $allData[0]->tanggal_kembali->lessThanOrEqualTo($tgl_kembali)) {
-                    return 'error';
+                    return back()->with('error','Barang pada tanggal tersebut telah terpinjam');
                 }
                 else {
                     $a='';
@@ -276,7 +276,7 @@ class UserController extends Controller
                         }
                     }
                     if ($a){
-                        return 'error';
+                        return back()->with('error','Barang pada tanggal tersebut telah terpinjam');
                     }
                 }
             }
